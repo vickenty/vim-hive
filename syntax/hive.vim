@@ -50,7 +50,7 @@ sy match Identifier +\${[^}]*}+
 
 sy match Comment +--.*+
 
-sy region PreProc start="/\*+" end="\*/" 
+sy region PreProc start="/\*+" end="\*/"
 
 sy match Keyword +\<set\>+
 sy match hiveSet +^set\s[^;]*;+ nextgroup=hiveSetKw contains=hiveSetKw,hiveSetWs,hiveSetVar,hiveSetEq,hiveSetVal
