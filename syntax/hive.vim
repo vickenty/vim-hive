@@ -33,7 +33,6 @@ sy keyword Constant null
 sy match Identifier +\${[^}]*}+
 
 sy match Comment +--.*+
-sy region Comment start=+/\*+ end=+\*/+
 
 sy region PreProc start="/\*+" end="\*/" 
 
