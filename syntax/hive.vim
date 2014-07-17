@@ -58,9 +58,9 @@ sy match Keyword +\<set\>+
 sy match hiveSet +^set\s[^;]*;+ nextgroup=hiveSetKw contains=hiveSetKw,hiveSetWs,hiveSetVar,hiveSetEq,hiveSetVal
 sy keyword hiveSetKw set nextgroup=hiveSetWs contained
 sy match hiveSetWs +\s\++ nextgroup=hiveSetVar contained
-sy match hiveSetVar +[^= ]*+ nextgroup=hiveSetEq contained
+sy match hiveSetVar +[^= ]\++ nextgroup=hiveSetEq contained
 sy match hiveSetEq +\s*=\s*+ nextgroup=hiveSetVal contained
-sy match hiveSetVal +[^;]*+ contained contains=Identifier
+sy match hiveSetVal +[^;]\++ contained contains=Identifier
 
 sy match Keyword +\<add\>+
 sy match hiveAdd +^add\s[^;]*;+ nextgroup=hiveAddKw contains=hiveAddKw,hiveAddWs,hiveAddPath
