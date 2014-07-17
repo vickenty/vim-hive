@@ -55,17 +55,15 @@ sy match Comment +--.*+
 sy region PreProc start="/\*+" end="\*/"
 
 sy match Keyword +\<set\>+
-sy match hiveSet +^set\s[^;]*;+ nextgroup=hiveSetKw contains=hiveSetKw,hiveSetWs,hiveSetVar,hiveSetEq,hiveSetVal
-sy keyword hiveSetKw set nextgroup=hiveSetWs contained
-sy match hiveSetWs +\s\++ nextgroup=hiveSetVar contained
-sy match hiveSetVar +[^= ]\++ nextgroup=hiveSetEq contained
-sy match hiveSetEq +\s*=\s*+ nextgroup=hiveSetVal contained
+sy match hiveSet +^set\s[^;]*;+ nextgroup=hiveSetKw contains=hiveSetKw,hiveSetVar,hiveSetEq,hiveSetVal
+sy keyword hiveSetKw set nextgroup=hiveSetVar contained skipwhite
+sy match hiveSetVar +[^= ]\++ nextgroup=hiveSetEq contained skipwhite
+sy match hiveSetEq +=\s*+ nextgroup=hiveSetVal contained
 sy match hiveSetVal +[^;]\++ contained contains=Identifier
 
 sy match Keyword +\<add\>+
-sy match hiveAdd +^add\s[^;]*;+ nextgroup=hiveAddKw contains=hiveAddKw,hiveAddWs,hiveAddPath
-sy keyword hiveAddKw add file nextgroup=hiveAddWs contained
-sy match hiveAddWs +\s\++ nextgroup=hiveAddKw,hiveAddPath contained
+sy match hiveAdd +^add\s[^;]*;+ nextgroup=hiveAddKw contains=hiveAddKw,hiveAddPath
+sy keyword hiveAddKw add file nextgroup=hiveAddKw contained skipwhite
 sy match hiveAddPath +[^;]\++ contained
 
 sy region hiveQuote start=+`+ end=+`+
