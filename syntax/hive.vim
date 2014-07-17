@@ -55,7 +55,7 @@ sy match Comment +--.*+
 sy region PreProc start="/\*+" end="\*/"
 
 sy match Keyword +\<set\>+
-sy match hiveSet +^set\s[^;]*;+ nextgroup=hiveSetKw contains=hiveSetKw,hiveSetVar,hiveSetEq,hiveSetVal,hiveSetRole,hiveSetRoleName
+sy match hiveSet +^set\s[^;]*+ nextgroup=hiveSetKw contains=hiveSetKw,hiveSetVar,hiveSetEq,hiveSetVal,hiveSetRole,hiveSetRoleName
 sy keyword hiveSetKw set nextgroup=hiveSetVar,hiveSetRole contained skipwhite
 sy match hiveSetVar +[^= ]\++ nextgroup=hiveSetEq contained skipwhite
 sy match hiveSetEq +=\s*+ nextgroup=hiveSetVal contained
@@ -67,7 +67,7 @@ if !exists("hive_version") || hive_version >= 13
 endif
 
 sy match Keyword +\<add\>+
-sy match hiveAdd +^add\s[^;]*;+ nextgroup=hiveAddKw contains=hiveAddKw,hiveAddPath
+sy match hiveAdd +^add\s[^;]*+ nextgroup=hiveAddKw contains=hiveAddKw,hiveAddPath
 sy keyword hiveAddKw add file nextgroup=hiveAddKw contained skipwhite
 sy match hiveAddPath +[^;]\++ contained
 
