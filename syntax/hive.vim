@@ -68,7 +68,7 @@ endif
 
 sy match Keyword +\<add\>+
 sy match hiveAdd +^add\s[^;]*+ nextgroup=hiveAddKw contains=hiveAddKw,hiveAddPath
-sy keyword hiveAddKw add file nextgroup=hiveAddKw contained skipwhite
+sy keyword hiveAddKw add file files jar jars archive archives nextgroup=hiveAddKw contained skipwhite
 sy match hiveAddPath +[^; \t]\++ contained
 
 sy region hiveQuote start=+`+ end=+`+
